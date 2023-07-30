@@ -31,10 +31,10 @@ function addActiveClass(tabElement, contentElement) {
       .forEach((content) => content.classList.remove("active"));
 
     if (tabElement === pomodoroTab) {
-      body.style.backgroundColor = "#e63946";
-      pomodoroButton.style.color = "#e63946";
+      body.style.backgroundColor = " #913ba5";
+      pomodoroButton.style.color = " #913ba5";
     } else if (tabElement === shortBreakTab) {
-      body.style.backgroundColor = "#4c9195";
+      body.style.backgroundColor = "#008080";
       shortBreakButton.style.color = "#4c9195";
     } else if (tabElement === longBreakTab) {
       body.style.backgroundColor = "#457ca3";
