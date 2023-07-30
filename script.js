@@ -76,7 +76,7 @@ function displayTime(seconds, element) {
   const minute = Math.floor(seconds / 60);
   const second = seconds % 60;
 
-  console.log({ minute, second });
+  //console.log({ minute, second });
   element.innerText =
     convertToTwoDigits(minute) + " : " + convertToTwoDigits(second);
 }
