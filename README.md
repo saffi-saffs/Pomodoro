@@ -1,4 +1,4 @@
-# Pomodoro
+# 🍅 PomoDoro Focus
 This project is a JavaScript Based Pomodoro Timer.
 #Features:
 1. Pomodoro Timer that spans for 25 mins.
