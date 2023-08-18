@@ -3,6 +3,9 @@ const body = document.querySelector("body");
 const pomodoroTab = document.getElementById("pomodoro");
 const shortBreakTab = document.getElementById("shortBreak");
 const longBreakTab = document.getElementById("longBreak");
+const tablist = document.getElementById("task-list");
+
+const taskheader = document.getElementById("myDIV");
 
 const pomodoroContent = document.getElementById("pomodoro-content");
 const shortBreakContent = document.getElementById("shortbreak-content");
@@ -33,12 +36,18 @@ function addActiveClass(tabElement, contentElement) {
     if (tabElement === pomodoroTab) {
       body.style.backgroundColor = " #913ba5";
       pomodoroButton.style.color = " #913ba5";
+      tablist.style.backgroundcolor = " #913ba5";
+      taskheader.style.backgroundcolor = " #913ba5";
     } else if (tabElement === shortBreakTab) {
       body.style.backgroundColor = "#008080";
-      shortBreakButton.style.color = "#4c9195";
+      shortBreakButton.style.backgroundcolor = "#4c9195";
+      tablist.style.color = "#4c9195";
+      taskheader.style.backgroundcolor = " #913ba5";
     } else if (tabElement === longBreakTab) {
       body.style.backgroundColor = "#457ca3";
       longBreakButton.style.color = "#457ca3";
+      tablist.style.backgroundColor = "#457ca3";
+      taskheader.style.backgroundcolor = " #913ba5";
     }
   });
 }
@@ -97,3 +106,62 @@ function startStop(button, timeText, totalTime) {
 startStop(pomodoroButton, pomodoroTime, 1500);
 startStop(shortBreakButton, shortBreakTime, 300);
 startStop(longBreakButton, longBreakTime, 900);
+
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function () {
+    var div = this.parentElement;
+    div.style.display = "none";
+  };
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector("ul");
+list.addEventListener(
+  "click",
+  function (ev) {
+    if (ev.target.tagName === "LI") {
+      ev.target.classList.toggle("checked");
+    }
+  },
+  false
+);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === "") {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+      var div = this.parentElement;
+      div.style.display = "none";
+    };
+  }
+}
