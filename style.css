@@ -10,6 +10,7 @@ body {
   display: flex;
   flex-direction: row;
   padding: auto;
+  gap: 10px;
 }
 .timer-content {
   width: 50%;
@@ -30,6 +31,7 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   position: relative;
   right: 50px;
+  display: block;
 }
 
 header {
@@ -98,30 +100,8 @@ button {
 .tab-item-content.active {
   display: block;
 }
-
-@media only screen and (min-width: 0px) and (max-width: 800px) {
-  .timer-content {
-    width: 100%;
-    margin: 0;
-  }
-
-  .tab-list {
-    flex-direction: column;
-  }
-
-  .tab-item {
-    text-align: center;
-  }
-
-  .time {
-    font-size: 6rem;
-  }
-
-  .timer-container {
-    padding: 20px 30px;
-    margin: 20px auto;
-    border-radius: 3px;
-  }
+h2 {
+  display: block;
 }
 
 .task-list {
@@ -240,4 +220,46 @@ input {
 
 .addBtn:hover {
   background-color: #bbb;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 900px) {
+  .timer-content {
+    width: 100%;
+    margin: 0;
+  }
+  .wrapper {
+    flex-direction: column;
+  }
+  .header {
+    display: block;
+    width: max-content;
+    margin: 0;
+  }
+
+  .tab-list {
+    flex-direction: column;
+  }
+
+  .tab-item {
+    text-align: center;
+  }
+
+  .time {
+    font-size: 6rem;
+  }
+
+  .timer-container {
+    padding: 20px 30px;
+    margin: 20px auto;
+    border-radius: 3px;
+  }
+  .task-list,
+  #myInput {
+    width: 2000; /* Set the width to 100% to fill the entire width */
+    margin: 0 auto; /* Center the container horizontally */
+    text-align: center;
+  }
+  #myInput {
+    width: 100%;
+  }
 }
